@@ -40,7 +40,7 @@ We see a dictionary of the curve used, it's fitted params, and it's r_squared sc
 In this case, every function was linear, with a low r_squared score.
 However, the combination the three inaccurate regressions produces a highly accurate prediction.
 
-##Comparison of AutoCurver to Other Techniques
+## Comparison of AutoCurver to Other Techniques
 
 This is a collection of models with their default parameters, and if they are highly accurate, tuned parameters. They are tested on 100 splits of the linnerud dataset.
 
