@@ -1,11 +1,11 @@
-#Auto Curver
+# Auto Curver
 
 This is a drop-in sklearn regressor that fits a collection of curves to data. 
-It has competitive performance with GradientBoostingRegression and SVR for small, dense, continuous datasets, such as linnerud.
+It has competitive performance with other estimators for small, dense, continuous datasets, such as linnerud.
 
 ![all curves plotted](images/Figure_1.png)
 
-Fitting curves in this matter allows for good models to be produced from small amounts of data, and naturally makes overfitting very difficult, as there are at most 8 parameters. 
+Fitting curves in this manner allows for good models to be produced from small amounts of data, and naturally makes overfitting difficult, as there are at most 8 parameters. 
 
 To extend this method over multi-dimensional input, a single curve is trained for each (X[dimension], y) pair. When predicting, a weighted average is computed, using the r_squared scores for each dimensional curve. 
 
@@ -15,7 +15,7 @@ The AutoCurver class accepts three params:
 * *certainty_scaler*, the power to raise the r_squared scores to before computing the weighted average. A larger value will make the estimator more dependent on a few strong dimensions, a value lower than 1 will raise the importance of dimensions with a weak correlation. 
 
 
-##Fitting AutoCurver on the linnerud dataset:
+## Fitting AutoCurver on the linnerud dataset:
 
 ```
 from sklearn.datasets import load_linnerud
@@ -101,9 +101,9 @@ So:
 With basic tuning, AutoCurver is 6% better then the next best estimator for this problem.
 
 
-##Caveats
+## Caveats
 
-1. AutoCurver is sometimes _incredibly_, _dramatically_ incorrect. There are some functions that produce a spike or discontinuity with some params, and if you get unlucky with your training data, that spike might be right in the middle of where you want a smooth prediction.
+1. AutoCurver is sometimes _incredibly_, _dramatically_ incorrect. There are some functions that produce a spike or discontinuity with some params, and if you get unlucky with your training data, that spike might be right in the middle of where you want a smooth prediction. 
 2. Since AutoCurver only looks at one dimension at a time, it is incapable of dealing with sparse or categorical datasets with any accuracy.
 3. If you have a large amount of data with a complex pattern, AutoCurver will lose to a more powerful estimator.
 
