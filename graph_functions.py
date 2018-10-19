@@ -1,7 +1,7 @@
 import numpy as np
 import matplotlib.pyplot as plt
 from scipy.optimize import curve_fit
-from auto_curve import functions
+from curvefit import functions
 
 
 def fit_and_plot(curve, name, plot, Xy):
